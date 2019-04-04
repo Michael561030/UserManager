@@ -1,0 +1,9 @@
+.mat-dialog-actions, .mat-list-item {
+  display: flex;
+  justify-content: space-between;
+}
+
+.editForm {
+  min-width: 250px;
+  text-align: center;
+}

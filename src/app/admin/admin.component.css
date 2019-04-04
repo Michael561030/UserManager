@@ -1,0 +1,29 @@
+header {
+  width: 100vw;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.add-btn {
+  display: flex;
+  justify-content: center;
+  background-color: #fff;
+}
+
+table {
+  font-size: 18px;
+}
+
+.fa-plus {
+  color: #150dea;
+  font-size: 50px;
+  cursor: pointer;
+  background-color: #fff;
+}
+
+.btn-default {
+  line-height: 35px;
+  font-size: 18px;
+  width: 130px;
+}

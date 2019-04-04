@@ -1,0 +1,40 @@
+<div *ngIf="!isEdit">
+  <mat-card>
+    <mat-card-content>
+      <mat-list role="list">
+        <!--<mat-list-item role="listitem">ID: {{userId?.id}}</mat-list-item>-->
+        <mat-list-item role="listitem">First Name: {{userId?.firstname}}</mat-list-item>
+        <mat-list-item role="listitem">Last Name: {{userId?.lastname}}</mat-list-item>
+        <mat-list-item role="listitem">Email: {{userId?.email}}</mat-list-item>
+        <!--<mat-list-item role="listitem">Password: {{userId?.password}}</mat-list-item>-->
+      </mat-list>
+    </mat-card-content>
+  </mat-card>
+  <div mat-dialog-actions>
+    <button mat-button (click)="edit()">Edit</button>
+    <button mat-button (click)="back()">Back</button>
+  </div>
+</div>
+
+
+<form [formGroup]="editForm" *ngIf="isEdit" class="editForm">
+  <mat-form-field>
+    <input matInput placeholder="First Name" type="text" formControlName="firstname" value="{{userId?.firstname}}">
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <input matInput placeholder="Last Name" type="text" formControlName="lastname" value="{{userId?.lastname}}">
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <input matInput placeholder="Email" type="email" formControlName="email" value="{{userId?.email}}">
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <input matInput placeholder="Password" formControlName="password" value="{{userId?.password}}" required
+           type="password">
+  </mat-form-field>
+  <br>
+  <button mat-button (click)="onNoClick()">Cancel</button>
+  <button mat-button (click)="confirmEdit()">Ok</button>
+</form>

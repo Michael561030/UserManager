@@ -1,0 +1,49 @@
+<header>
+  <h5>User manager</h5>
+
+  <a class="btn btn-default" routerLink="/">Log out</a>
+</header>
+
+<div class="add-btn">
+  <a type="button" (click)="signUp(a)"><i class="fas fa-plus"></i></a>
+</div>
+<input type="search" class="form-control" name="search" id="search" placeholder="Search...." [(ngModel)]="searchName"
+       [ngStyle]="{margin: '20px 0', height: '50px', fontSize:'1.5em' } ">
+<ng-container>
+  <div class="table-responsive">
+    <table class="table table-hover">
+      <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col"><a routerLink="/id"></a>First Name</th>
+        <th scope="col">Last Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Password</th>
+      </tr>
+      </thead>
+      <tbody *ngFor="let user of users | filter:searchName:true;  let idx = index">
+      <tr>
+        <th scope="row">{{idx+1}}</th>
+        <td>{{user.firstname}}</td>
+        <td>{{user.lastname}}</td>
+        <td>{{user.email}}</td>
+        <td>{{user.password}}</td>
+        <td>
+          <button type="button" class="btn btn-default" (click)="openModal(user.id)">Delete</button>
+          <button type="button" class="btn btn-default" (click)="editModal(user.id)"
+                  matTooltip="Details and information about users">Info
+          </button>
+        </td>
+
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</ng-container>
+<mat-paginator [length]="100"
+               [pageSize]="10"
+               [pageSizeOptions]="[5, 10, 25, 100]">
+</mat-paginator>
+
+
+
